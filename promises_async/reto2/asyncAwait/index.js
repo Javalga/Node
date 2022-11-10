@@ -17,4 +17,4 @@ const readAndWrite = async (currentItem, fileName) => {
   }
 };
 
-readAndWrite(newObj, "newObj");
+module.exports = { readAndWrite };
