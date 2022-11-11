@@ -10,5 +10,5 @@ let myObj = {
   age: 39,
 };
 
-readConsole.readConsole(console.log, myObj);
+readConsole.readConsole(console.log);
 writeAndRead.writeAndRead("./miObj.json", myObj);
