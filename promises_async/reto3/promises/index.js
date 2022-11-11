@@ -1,6 +1,7 @@
 let readline = require("readline");
 let fs = require("fs");
 let readAndWrite = require("../../reto2/promises/index");
+
 function pregunta(pregunta) {
   const question = new Promise((resolve, reject) => {
     const rl = readline.createInterface({
@@ -31,6 +32,7 @@ const newObjMaker = (fileName) => {
       readAndWrite.readAndWrite(newObj, fileName);
     })
     .catch((err) => console.log(err));
+  return newObj;
 };
 
-newObjMaker("Mi_objeto");
+module.exports = { newObjMaker };
