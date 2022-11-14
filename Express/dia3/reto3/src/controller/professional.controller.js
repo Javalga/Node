@@ -119,7 +119,16 @@ const getProfessionals = (req, res) => {
 
 const postIntoProfessionals = (req, res) => {
   let answer;
-  if (professional != null) {
+  if (professionals) {
+    professional = new Professional(
+      req.body.name,
+      req.body.age,
+      req.body.weight,
+      req.body.height,
+      req.body.isRetired,
+      req.body.nationality,
+      req.body.oscarsNumber,
+      req.body.profession)
     professionals.push(professional);
     answer = {
       error: false,
