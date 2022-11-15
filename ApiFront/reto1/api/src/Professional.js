@@ -7,7 +7,7 @@ class Professional {
     isRetired,
     nationality,
     oscarsNumber,
-    profession
+    profession,
   ) {
     this.name = name;
     this.age = age;
@@ -17,6 +17,7 @@ class Professional {
     this.nationality = nationality;
     this.oscarsNumber = oscarsNumber;
     this.profession = profession;
+    this.id;
   }
   printAll() {
     console.group(Professional);

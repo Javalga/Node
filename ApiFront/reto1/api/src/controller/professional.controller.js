@@ -100,9 +100,13 @@ let professionals = [];
 
 const getProfessionals = (req, res) => {
   let answer;
-  let position = req.query.id
+  let position = req.query.id - 1
   if (professionals.length > 0) {
-    answer = professionals[position - 1];
+    if (professionals[position]) {
+      answer = professionals[position];
+    } else {
+      answer = professionals
+    }
   } else {
     answer = {
       error: true,
@@ -145,8 +149,9 @@ const postIntoProfessionals = (req, res) => {
 
 const putProfessionals = (req, res) => {
   let answer;
-  let position = req.query.pos;
-  if (professional != null && professionals[position]) {
+  console.log(req.body)
+  let position = req.body.id - 1
+  if (professionals[position]) {
     professionals[position].name = req.body.name;
     professionals[position].age = req.body.age;
     professionals[position].weight = req.body.weight;
@@ -173,15 +178,15 @@ const putProfessionals = (req, res) => {
 };
 
 const deleteProfessionals = (req, res) => {
-  let position = req.query.pos;
+  let position = req.body.id - 1;
   let answer;
   if (professionals != null && professionals[position]) {
-    professionals.splice(position, 1);
+    professionals.splice(position);
     answer = {
       error: false,
       code: 200,
       message: "Professional deleted",
-      result: professionals[req.param.pos],
+      result: professionals[position],
     };
   } else
     answer = {
